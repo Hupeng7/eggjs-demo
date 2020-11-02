@@ -33,7 +33,7 @@ exports.cors = {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
 };
 
-// 传输文件
+// 获取上传的文件
 exports.multipart = {
     mode: 'file',
 }
