@@ -7,7 +7,9 @@
     "debug": "egg-bin debug",
     "dbinit": "egg-sequelize-auto -o ./app/model -h localhost -p 3306 -d library -u root -x root",
     "start": "egg-scripts start --daemon",
-    "stop": "egg-scripts stop"
+    "stop": "egg-scripts stop",
+    "start-prod": "egg-scripts start --env=prod --daemon --title=egg-server-prod",
+    "stop-prod": "egg-scripts stop --env=prod --title=egg-server-prod"
   },
   "keywords": [
     "napi",
@@ -28,6 +30,8 @@
     "egg-sequelize": "^5.2.0",
     "egg-swagger-doc": "^2.3.2",
     "egg-validate": "^2.0.2",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
     "ms": "^2.1.2",
     "mysql2": "^1.7.0"
   },
