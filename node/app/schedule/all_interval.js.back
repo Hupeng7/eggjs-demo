@@ -1,0 +1,21 @@
+'use strict';
+
+const Subscription = require('egg').Subscription;
+const moment = require('moment');
+
+class AllInterval extends Subscription {
+    async subscribe() {
+        var nowStr = moment().format('YYYY-MM-DD HH:mm:ss');
+        console.log("任务执行AllInterval : " + nowStr);
+        //this.ctx.logger.info('all&&interval');
+    }
+
+    static get schedule() {
+        return {
+            interval: 3000,
+            type: 'all',
+        };
+    }
+}
+
+module.exports = AllInterval;
