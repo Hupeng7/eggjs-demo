@@ -1,5 +1,8 @@
 'use strict';
 
+// import _ from 'lodash';
+// import moment from 'moment';
+
 /**
  * 当前版本：v1.0.0
  * 文件名称：hello.js
@@ -10,6 +13,8 @@
  */
 
 const Controller = require("./baseController");
+const moment = require('moment');
+const _ = require('lodash');
 
 /**
 * @controller HelloService hello
@@ -25,14 +30,15 @@ class HelloController extends Controller {
     async index() {
         const { ctx } = this;
         const name = ctx.query.name;
-        var result = 'hello, egg! hello,world! hello,' + name;
+        var nowStr = moment().format('YYYY-MM-DD HH:mm:ss');
+        var result = 'hello, egg! hello,world! hello,' + name + ',time is:' + nowStr;
         this.jsonBody({ result: result });
     }
 
 
     /**
-     * @summary 编辑图书
-     * @description 编辑图书
+     * @summary 检查body大小
+     * @description 检查body大小
      * @router post /v1/hello/postBodyJson
      * @request body CreateOrUpdateBookDto modal 图书信息
      * @response 200 JsonResult 操作结果
@@ -42,10 +48,10 @@ class HelloController extends Controller {
         //ctx.validate(ctx.rule.CreateOrUpdateBookDto);
 
         const param = ctx.request.body;
-      
+
         const result = param.Name;
 
-        this.jsonBody({result:result});
+        this.jsonBody({ result: result });
     }
 }
 

@@ -26,7 +26,10 @@ module.exports = {
         return obj;
     },
     mapperToDto(srcData, contractType) {
-        if (typeof srcData === "object" && srcData.length) {
+        // 判断null值
+        if (srcData == null || srcData.length < 1) {
+            return null;
+        } else if (typeof srcData === "object" && srcData.length) {
             var arr = [];
 
             for (let item of srcData) {
@@ -34,8 +37,7 @@ module.exports = {
             }
 
             return arr;
-        }
-        else if (typeof srcData === "object") {
+        } else if (typeof srcData === "object") {
             return this.toJsonDto(srcData, contractType);
         }
 

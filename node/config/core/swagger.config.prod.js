@@ -14,7 +14,7 @@ module.exports = {
     dirScanner: './app/controller', // 配置自动扫描的控制器路径
     // 接口文档的标题，描述或其它
     apiInfo: {
-        title: 'eggjs-demo dev',  // 接口文档的标题
+        title: 'eggjs-demo prod',  // 接口文档的标题
         description: 'swagger-ui for eggjs-demo document.',   // 接口文档描述
         version: '1.0.0',   // 接口文档版本
     },
