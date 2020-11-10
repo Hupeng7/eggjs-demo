@@ -49,9 +49,17 @@ class BookController extends Controller {
         const id = ctx.query.Id;
 
         const result = await service.book.getById(id);
+        console.log("result----", result);
         const newReuslt = ctx.helper.mapperToDto(result, ctx.rule.CreateOrUpdateBookDto);
+        console.log("newReuslt----", newReuslt);
+        const resultPro = await service.book.getByIdPro(id);
+        const newReusltPro = ctx.helper.mapperToDto(resultPro, ctx.rule.CreateOrUpdateBookDto);
+        console.log("newReusltPro----", newReusltPro);
+        const resultPro1 = await service.book.getByIdPro1(id);
+        const newReusltPro1 = ctx.helper.mapperToDto(resultPro1, ctx.rule.CreateOrUpdateBookDto);
+        console.log("newReusltPro1----", newReusltPro1);
         //this.jsonBody(newReuslt);
-        this.jsonBody({ code: 2000, result: newReuslt });
+        this.jsonBody({ code: 2000, result: { newReuslt, newReusltPro, newReusltPro1 } });
     }
 
     /**
@@ -69,7 +77,7 @@ class BookController extends Controller {
         if (param.Name) whereSql += ` and b.Name like '%${param.Name}%' or b.Author like '%${param.Name}%' or b.MakeSource like '%${param.Name}%'`
 
         const results = await service.book.getAll(whereSql);
-        this.jsonBody(results);
+        this.jsonBody({ code: 2000, result: results });
     }
 
     /**

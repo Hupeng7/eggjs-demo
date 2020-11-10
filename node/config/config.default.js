@@ -13,28 +13,60 @@ const databaseconfig = require("./core/database.config");
 const swaggerdoc = require("./core/swagger.config");
 
 // 重新设置body大小
-exports.bodyParser = {
-    jsonLimit: '5mb',
-    formLimit: '5mb',
-};
+// exports.bodyParser = {
+//     jsonLimit: '5mb',
+//     formLimit: '5mb',
+// };
 
-// 配置项目唯一的标识
-exports.keys = "monksoul.napi";
+// // 配置项目唯一的标识
+// exports.keys = "monksoul.napi";
 
-// egg-swagger-doc 配置信息
-exports.swaggerdoc = swaggerdoc;
+// // egg-swagger-doc 配置信息
+// exports.swaggerdoc = swaggerdoc;
 
-// 数据库配置
-exports.sequelize = databaseconfig;
+// // 数据库配置
+// exports.sequelize = databaseconfig;
 
-// 跨域配置
-exports.cors = {
-    origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
-};
+// // 跨域配置
+// exports.cors = {
+//     origin: '*',
+//     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+// };
 
-// 获取上传的文件
-exports.multipart = {
-    mode: 'file',
+// // 获取上传的文件
+// exports.multipart = {
+//     mode: 'file',
+// }
+module.exports = appInfo => {
+    const config = {};
+
+    // 重新设置body大小
+    config.bodyParser = {
+        jsonLimit: '5mb',
+        formLimit: '5mb',
+    };
+
+    // 配置项目唯一的标识
+    config.keys = "monksoul.napi";
+
+    // egg-swagger-doc 配置信息
+    config.swaggerdoc = swaggerdoc;
+
+    // 数据库配置
+    config.sequelize = databaseconfig;
+
+    // 跨域配置
+    config.cors = {
+        origin: '*',
+        allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+    };
+
+    // 获取上传的文件
+    config.multipart = {
+        mode: 'file',
+    }
+
+    return config;
 }
+
 

@@ -12,7 +12,9 @@ module.exports = app => {
     },
     Name: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
+      comment: "名称",
+      field: 'Name'
     },
     Price: {
       type: DataTypes.DECIMAL,
@@ -24,11 +26,13 @@ module.exports = app => {
     },
     MakeSource: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
+      field: 'MakeSource'
     },
     BookCategoryId: {
       type: DataTypes.STRING(128),
-      allowNull: false
+      allowNull: false,
+      field: 'BookCategoryId'
     },
     Inventory: {
       type: DataTypes.INTEGER(11),
@@ -37,26 +41,30 @@ module.exports = app => {
     IsDeleted: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
-      defaultValue: '0'
+      defaultValue: '0',
+      field: 'IsDeleted'
     },
     IsSoldOut: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
-      defaultValue: '0'
+      defaultValue: '0',
+      field: 'IsSoldOut'
     },
     CreatedDate: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      field: 'CreatedDate'
     },
     UpdatedDate: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      field: 'UpdatedDate'
     }
   }, {
-    tableName: 'book'
-  });
+      tableName: 'book'
+    });
 
-  Model.associate = function() {
+  Model.associate = function () {
 
   }
 

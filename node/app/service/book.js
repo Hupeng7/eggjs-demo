@@ -17,6 +17,17 @@ class BookService extends Service {
     }
 
     /**
+    * 根据Id获取表信息 另一个库
+    * @param {*} id 主键
+    */
+    async getByIdPro1(id) {
+        const { ctx } = this;
+        const [result] = await ctx.model_prod.query(`select Id,Name,Price,Author,MakeSource,Inventory,IsSoldOut,DATE_FORMAT(CreatedDate,'%Y-%m-%d %H:%i:%s') CreatedDate,DATE_FORMAT(UpdatedDate,'%Y-%m-%d %H:%i:%s') UpdatedDate from ${this.tableName}  where Id = ${id}`);
+        console.log("sql result---", [result]);
+        return result[0];
+    }
+
+    /**
      * 获取所有图书
      * @param {*} whereSql 
      */
